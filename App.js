@@ -1,13 +1,30 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import { Provider as PaperProvider } from "react-native-paper";
+// import { StatusBar } from "expo-status-bar";
+import { StatusBar, StyleSheet, Text, View } from "react-native";
+import {
+  Provider as PaperProvider,
+  TextInput,
+  Searchbar,
+  ActivityIndicator,
+} from "react-native-paper";
+import { SafeAreaView } from "react-native-safe-area-context";
+import Home from "./src/screens/home";
+import { useFonts } from "expo-font";
 export default function App() {
+  const [fontsloaded] = useFonts({
+    DroidSans: require("./assets/fonts/NotoSans-Bold.ttf"),
+  });
+  if (!fontsloaded) {
+    return (
+      <PaperProvider>
+        <ActivityIndicator />
+      </PaperProvider>
+    );
+  }
   return (
     <PaperProvider>
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <StatusBar style="auto" />
-      </View>
+      <SafeAreaView>
+        <Home />
+      </SafeAreaView>
     </PaperProvider>
   );
 }
@@ -16,7 +33,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    // alignItems: "center",
+    // justifyContent: "center",
   },
 });
