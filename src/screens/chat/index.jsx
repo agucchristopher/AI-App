@@ -8,15 +8,16 @@ import {
   View,
 } from "react-native";
 import React from "react";
-import { Card, Searchbar } from "react-native-paper";
+import { Card, Searchbar, TextInput } from "react-native-paper";
 import screens from "../../data";
+import { Ionicons } from "@expo/vector-icons";
 
-const Home = () => {
+const Chat = () => {
   const navigate = (screen) => {};
   return (
     <View style={styles.page}>
-      <Text style={styles.title}>Welcome to AI app 🚀🚀</Text>
-      <FlatList
+      <Text style={styles.title}>Chat-GPT 💬</Text>
+      {/* <FlatList
         data={screens}
         numColumns={2}
         renderItem={({ item }) => (
@@ -38,19 +39,35 @@ const Home = () => {
             </TouchableOpacity>
           </Card>
         )}
+      /> */}
+      <TextInput
+        left={() => <Ionicons name="add" />}
+        mode="outlined"
+        outlineStyle={{
+          borderRadius: 29292929,
+          width: "95%",
+          borderColor: "#1d1d1d",
+        }}
+        style={{
+          position: "absolute",
+          zIndex: 10,
+          bottom: 40,
+          width: "95%",
+          alignSelf: "center",
+        }}
       />
     </View>
   );
 };
 
-export default Home;
+export default Chat;
 
 const styles = StyleSheet.create({
   page: {
     // flex: 1,
     backgroundColor: "#121212",
-    alignItems: "center",
-    justifyContent: "center",
+    // alignItems: "center",
+    // justifyContent: "center",
     height: Dimensions.get("window").height,
   },
   cards: {

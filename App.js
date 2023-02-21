@@ -9,6 +9,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import Home from "./src/screens/home";
 import { useFonts } from "expo-font";
+import Chat from "./src/screens/chat";
 export default function App() {
   const [fontsloaded] = useFonts({
     DroidSans: require("./assets/fonts/NotoSans-Bold.ttf"),
@@ -23,7 +24,8 @@ export default function App() {
   return (
     <PaperProvider>
       <SafeAreaView>
-        <Home />
+        <StatusBar animated barStyle={"light-content"} />
+        <Chat />
       </SafeAreaView>
     </PaperProvider>
   );
@@ -33,7 +35,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    // alignItems: "center",
-    // justifyContent: "center",
   },
 });
